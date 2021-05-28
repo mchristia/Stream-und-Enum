@@ -4,7 +4,6 @@ import com.example.streamsdemo.model.Student;
 import com.example.streamsdemo.model.StudentDto;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StudentServiceTest {
 
-private final StudentRepository studentRepository = new StudentRepository();
-private final StudentService studentService = new StudentService(studentRepository);
+private final StudentService studentService = new StudentService();
 
 
     @Test
