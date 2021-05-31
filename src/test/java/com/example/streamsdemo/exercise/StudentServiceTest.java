@@ -1,5 +1,6 @@
 package com.example.streamsdemo.exercise;
 
+import com.example.streamsdemo.model.Location;
 import com.example.streamsdemo.model.Student;
 import com.example.streamsdemo.model.StudentDto;
 import org.junit.jupiter.api.Test;
@@ -17,34 +18,34 @@ class StudentServiceTest {
     @Test
     public void testGetStudentsByLocation(){
         //GIVEN
-        String location = "Hamburg";
+        Location location = Location.HAMBURG;
         List<Student> expected = new ArrayList<>(List.of(
-                Student.builder().name("Frank").location("Hamburg").age(42).build(),
-                Student.builder().name("Hans").location("Hamburg").age(43).build(),
-                Student.builder().name("Hugo").location("Hamburg").age(17).build()));
+                Student.builder().name("Frank").location(Location.HAMBURG).age(42).build(),
+                Student.builder().name("Hans").location(Location.HAMBURG).age(43).build(),
+                Student.builder().name("Hugo").location(Location.HAMBURG).age(17).build()));
 
         //WHEN
         List<Student> actual = studentService.getStudentsByLocation(location);
 
         //THEN
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
 
     }
 
     @Test
     public void testGetStudentsByLocationAndMaximumAge(){
         //GIVEN
-        String location = "Hamburg";
+        Location location = Location.HAMBURG;
         int maxAge = 42;
         List<Student> expected = new ArrayList<>(List.of(
-                Student.builder().name("Frank").location("Hamburg").age(42).build(),
-                Student.builder().name("Hugo").location("Hamburg").age(17).build()));
+                Student.builder().name("Frank").location(Location.HAMBURG).age(42).build(),
+                Student.builder().name("Hugo").location(Location.HAMBURG).age(17).build()));
 
         //WHEN
         List<Student> actual = studentService.getStudentsByLocationAndMaximumAge(location, maxAge);
 
         //THEN
-        assertEquals(actual, expected);
+        assertEquals(expected, actual);
     }
 
 
@@ -52,15 +53,15 @@ class StudentServiceTest {
     public void testCreateStudentDtoList(){
         //GIVEN
         List<StudentDto> expected = new ArrayList<>(List.of(
-                StudentDto.builder().name("Frank").location("Hamburg").build(),
-                StudentDto.builder().name("Maria").location("Köln").build(),
-                StudentDto.builder().name("Klaus").location("Frankfurt").build(),
-                StudentDto.builder().name("Frida").location("Köln").build(),
-                StudentDto.builder().name("Franziska").location("München").build(),
-                StudentDto.builder().name("Anne").location("Frankfurt").build(),
-                StudentDto.builder().name("Hans").location("Hamburg").build(),
-                StudentDto.builder().name("Hugo").location("Hamburg").build(),
-                StudentDto.builder().name("Gerda").location("München").build()));
+                StudentDto.builder().name("Frank").location(Location.HAMBURG).build(),
+                StudentDto.builder().name("Maria").location(Location.COLOGNE).build(),
+                StudentDto.builder().name("Klaus").location(Location.FRANKFURT).build(),
+                StudentDto.builder().name("Frida").location(Location.COLOGNE).build(),
+                StudentDto.builder().name("Franziska").location(Location.MUNICH).build(),
+                StudentDto.builder().name("Anne").location(Location.FRANKFURT).build(),
+                StudentDto.builder().name("Hans").location(Location.HAMBURG).build(),
+                StudentDto.builder().name("Hugo").location(Location.HAMBURG).build(),
+                StudentDto.builder().name("Gerda").location(Location.MUNICH).build()));
 
 
         //WHEN
